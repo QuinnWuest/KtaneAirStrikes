@@ -27,34 +27,34 @@ public class AirStrikesScript : MonoBehaviour
     public GameObject ModuleBackground;
     public GameObject Radar;
 
-    public Text MessageScreenText;
+    public TextMesh MessageScreenTextMesh;
     public TextMesh[] ColorblindTexts;
     public Material[] ContentColors;
     public Material[] BorderColors;
 
 
-    private static string[] locations = new string[] 
-    { 
-        "Simonsborough", "Cycle Hills", "Brush Oaks", "Mystic Square", 
-        "Talkington", "Blind Valley", "Digit Springs", "Fort Tean", 
-        "Question Park", "Flashing Heights", "Alarmburg", "English Crest", 
+    private static string[] locations = new string[]
+    {
+        "Simonsborough", "Cycle Hills", "Brush Oaks", "Mystic Square",
+        "Talkington", "Blind Valley", "Digit Springs", "Fort Tean",
+        "Question Park", "Flashing Heights", "Alarmburg", "English Crest",
         "Sueet Falls", "Match Acres", "Black Knoll", "Passwood"
     };
     private static string[] names = new string[]
     {
         "1254", "Axodeau", "BlvdBroken", "Crazycaleb", "Heres_Fangy", "Ghastly",
-        "Konoko", "Nshep", "Procyon", "Quinn Wuest", "Willeh", "a_galvantula", 
+        "Konoko", "Nshep", "Procyon", "Quinn Wuest", "Willeh", "a_galvantula",
         "ghostsalt12", "meh", "redpenguiin", "vitzlo", "Usernam3"
     };
     private Dictionary<int, string[]> forTopics = new Dictionary<int, string[]>()
     {
-        {  4, new string[] { "Dogs are superior to cats, simply because they are not cats.", 
-                             "Cats are spawns of hell.", 
+        {  4, new string[] { "Dogs are superior to cats, simply because they are not cats.",
+                             "Cats are spawns of hell.",
                              "Dogs love you unconditionally. Cats would kill you and take your house." } },
-        { 11, new string[] { "You have UNO on your Xbox!", 
-                             "Look, I can see RIGHT THERE in your Xbox library that you have UNO.", 
+        { 11, new string[] { "You have UNO on your Xbox!",
+                             "Look, I can see RIGHT THERE in your Xbox library that you have UNO.",
                              "Why play DOS on your XCUBE when you can play UNO on your XBOX?" } },
-        { 12, new string[] { "It's big, it's round, so Pluto's a planet.", 
+        { 12, new string[] { "It's big, it's round, so Pluto's a planet.",
                              "Pluto go spin around big yellow star, this means Pluto be planet." } },
         { 10, new string[] { "Milk first leads to an uncomfortable mix of dry and wet cereal. Let the wetness equalize.",
                              "You absolute cretins. Who adds milk before cereal?",
@@ -68,10 +68,10 @@ public class AirStrikesScript : MonoBehaviour
                              "One has an E. Three has an E. That's all the odd numbers! They all have E!",
                              "The letter E is the most common letter in the language, included in all odd numbers.",
                              "How did you pass First Grade without knowing how to spell numbers properly? OnE, thrEE, fivE, sEvEn, ninE, the end." } },
-        {  1, new string[] { "I just like pineapple, okay? Is that a bad thing to you? Really?", 
-                             "My friend is Italian and they approved pineapple on pizza. Argument closed.", 
+        {  1, new string[] { "I just like pineapple, okay? Is that a bad thing to you? Really?",
+                             "My friend is Italian and they approved pineapple on pizza. Argument closed.",
                              "Pineapple pizza is actually pretty good!" } },
-        {  7, new string[] { "If it's socially acceptable to pick up a bowl of soup and drink from it, then I claim that soup is a drink.", 
+        {  7, new string[] { "If it's socially acceptable to pick up a bowl of soup and drink from it, then I claim that soup is a drink.",
                              "What do you do with the last bit of soup in the bowl? That’s right, you DRINK it.",
                              "If it's a liquid, it's a drink. Soup is definitely a liquid and therefore a drink." } },
         {  2, new string[] { "Guys, Santa is real. I just saw him at the mall recently!",
@@ -82,15 +82,15 @@ public class AirStrikesScript : MonoBehaviour
                              "As a Santa believer, he's real. He ate the cookies I gave him last year!" } },
         { 14, new string[] { "Sandy socks will be a long day.",
                              "Socks and sandals has to be the most uncomfortable thing ever. Just go barefoot."  } },
-        {  0, new string[] { "Air Strikes is the only manual I read from Round 2 of KWSNE. Therefore it is the best one and must win.", 
+        {  0, new string[] { "Air Strikes is the only manual I read from Round 2 of KWSNE. Therefore it is the best one and must win.",
                              "A message to those who thinks Air Strikes shouldn't win round 2 of KWSNE: You guys are just wrong."  } },
         { 15, new string[] { "Pepsi? PEPSI?? You lunatic. You buffoon. How do you prefer Pepsi over Coca-Cola??",
                              "Pepsi takes like nothing. Why would I take that over Coke?" } },
         {  5, new string[] { "Well, if you think about it, hot dogs are kind of sandwiches. Just... kind of." } },
-        {  9, new string[] { "Stupid. How did we get the egg before the chicken? We got the chicken first.",  
+        {  9, new string[] { "Stupid. How did we get the egg before the chicken? We got the chicken first.",
                              "Well, of course the chicken came before the egg. The egg can't raise itself..." } },
-        {  8, new string[] { "Winter is better than summer? Okay. Have fun freezing to death.", 
-                             "There's school in winter. Bad. There's no school in summer. Good.", 
+        {  8, new string[] { "Winter is better than summer? Okay. Have fun freezing to death.",
+                             "There's school in winter. Bad. There's no school in summer. Good.",
                              "Longer break in summer gives me more time for projects. Approved." } },
     };
     private Dictionary<int, string[]> againstTopics = new Dictionary<int, string[]>()
@@ -128,7 +128,7 @@ public class AirStrikesScript : MonoBehaviour
                              "Coca-Cola comes in a red can. Red is a bad color. Pepsi comes in a blue can. Blue is a good color. Drink Pepsi, kids." } },
         {  0, new string[] { "No. No no no no no. Hot dogs are far from sandwiches. Very, very far.",
                              "Nah, hot dogs are tacos. Fight me." } },
-        {  8, new string[] { "If I understand correctly, eggs have been around way longer than chickens.", 
+        {  8, new string[] { "If I understand correctly, eggs have been around way longer than chickens.",
                              "You never said \"chicken\" eggs, did you? Dinosaurs laid eggs way before chickens existed.",
                              "All chickens come from eggs, even the first one. The egg must have come before the chicken!",
                              "The egg mentioned in the problem didn't specify that it was a *chicken* egg now did it? Therefore, the egg came first." } },
@@ -156,12 +156,12 @@ public class AirStrikesScript : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             int j = i;
-            TriangleArrows[j].OnInteract += delegate () { return HandleMovement(TriangleArrows[j], j); };            
-             ChevronArrows[j].OnInteract += delegate () { return HandleMovement( ChevronArrows[j], j); };
+            TriangleArrows[j].OnInteract += delegate () { return HandleMovement(TriangleArrows[j], j); };
+            ChevronArrows[j].OnInteract += delegate () { return HandleMovement(ChevronArrows[j], j); };
         }
         //Assign Screen button
         CrosshairScreen.OnInteract += delegate () { return SubmitLocation(); };
-          MessageScreen.OnInteract += delegate () { return ResetLocation(); };
+        MessageScreen.OnInteract += delegate () { return ResetLocation(); };
     }
     private void Start()
     {
@@ -177,8 +177,8 @@ public class AirStrikesScript : MonoBehaviour
         {
             Radar.transform.localEulerAngles = new Vector3(90f, elapsed * 90, 90f);
             yield return null;
-            elapsed += Time.deltaTime; 
-        } 
+            elapsed += Time.deltaTime;
+        }
     }
 
     private void GenerateModule()
@@ -222,7 +222,8 @@ public class AirStrikesScript : MonoBehaviour
     private bool ResetLocation()
     {
         currentLocation = startingLocation;
-        if (soundOnClick) { Audio.PlaySoundAtTransform("HingeTap", transform); }; // Onclick custom sound
+        if (soundOnClick) { Audio.PlaySoundAtTransform("HingeTap", transform); }
+        ; // Onclick custom sound
         return false;
     }
 
@@ -240,7 +241,7 @@ public class AirStrikesScript : MonoBehaviour
         Debug.LogFormat("[Air Strikes #{0}] Submitted Location: {1}", _moduleId, locations[ans]);
         Audio.PlaySoundAtTransform("airStrikesSubmitSound", transform); // Onclick custom sound
         yield return new WaitForSeconds(15f);
-        if (ans != finalLocation)   
+        if (ans != finalLocation)
         {
             Module.HandleStrike();
             Audio.PlaySoundAtTransform("TargetMissed", transform); // custom strike sound
@@ -342,7 +343,9 @@ public class AirStrikesScript : MonoBehaviour
         messageMaterials[1] = BorderColors[messageBorderColorIndex];
         messageRenderer.materials = messageMaterials;
 
-        MessageScreenText.text = selectedName + ": " + timestamp + "\n" + message;
+        var messageRgxed = Regex.Replace(message, @"(.{1,29})(\s+|$)", "$1\n");
+
+        MessageScreenTextMesh.text = string.Format("{0}: {1}\n{2}", selectedName, timestamp, messageRgxed);
 
         ModuleBackground.transform.localRotation = Quaternion.Euler(new Vector3(0, statusLightPosition * 90, 0));
 
@@ -366,14 +369,14 @@ public class AirStrikesScript : MonoBehaviour
         Debug.LogFormat("[Air Strikes #{0}] The arrow buttons are in {1} and are {2}.", _moduleId, arrowColorName, arrowTypeIsTriangular ? "triangles" : "not triangles");
         Debug.LogFormat("[Air Strikes #{0}] The crosshair is in {1} with {2} frame.", _moduleId, crosshairColorName, crosshairBorderColorName);
         Debug.LogFormat("[Air Strikes #{0}] The message is in {1} frame and is {2} the crosshair.", _moduleId, messageBorderColorName, arr[14] ? "above" : "below");
-        Debug.LogFormat("[Air Strikes #{0}] The message reads: {1}", _moduleId, selectedName + ": " + timestamp + " - " + message);
+        Debug.LogFormat("[Air Strikes #{0}] The message reads: {1}: {2} - {3}", _moduleId, selectedName, timestamp, message);
         Debug.LogFormat("[Air Strikes #{0}] The status light is in {1}.", _moduleId, (arr[8] && arr[15]) ? "top right" : (arr[8] ? "top left" : (arr[15] ? "bottom right" : "bottom left")));
         Debug.LogFormat("[Air Strikes #{0}] Clicking the screen {1} a sound.", _moduleId, arr[10] ? "makes" : "does not make");
 
     }
-    #pragma warning disable 414
+#pragma warning disable 414
     string TwitchHelpMessage = "Use !{0} l/u/r/d // reset // submit // colorblind.";
-    #pragma warning restore 414
+#pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
         string validInputs = "lurd";
@@ -411,24 +414,27 @@ public class AirStrikesScript : MonoBehaviour
                     break;
             }
         }
-        else { Debug.LogFormat("[Air Strikes #{0}] Error in TP Handling, please contact developer.", _moduleId); };
+        else { Debug.LogFormat("[Air Strikes #{0}] Error in TP Handling, please contact developer.", _moduleId); }
+        ;
     }
 
     IEnumerator TwitchHandleForcedSolve()
     {
         yield return null;
-        while (currentLocation/4 != finalLocation/4)
+        while (currentLocation / 4 != finalLocation / 4)
         {
             yield return new WaitForSeconds(.1f);
             if (TriangleArrows[3].gameObject.activeSelf) TriangleArrows[3].OnInteract();
             else ChevronArrows[3].OnInteract();
-        };
+        }
+        ;
         while (currentLocation != finalLocation)
-        {   
+        {
             yield return new WaitForSeconds(.1f);
             if (TriangleArrows[2].gameObject.activeSelf) TriangleArrows[2].OnInteract();
             else ChevronArrows[2].OnInteract();
-        };
+        }
+        ;
         CrosshairScreen.OnInteract();
     }
 }
